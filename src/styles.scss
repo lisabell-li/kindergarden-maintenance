@@ -1,0 +1,27 @@
+
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+/*
+*Variables
+*/
+$primary-color: antiquewhite;
+$secondary-color: #f6e7e9; ;
+
+.container {
+    max-width: 960px;
+}
+
+.site-header {
+    background-color: rgba(0, 0, 0, .85);
+}
+
+.site-header a {
+    color: #999;
+}   
+
+.page{
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+}
+

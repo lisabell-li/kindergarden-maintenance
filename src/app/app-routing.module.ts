@@ -8,7 +8,7 @@ import { RoomdetailComponent } from './roomdetail/roomdetail.component';
 const routes: Routes = [
   {path:"", component: StartComponent},
   {path:"rooms", component: RoomsComponent},
-  {path:"rooms/id", component: RoomdetailComponent},
+  {path:"detail/:id", component: RoomdetailComponent},
   {path:"list", component: ShoppinglistComponent},
 
 ];

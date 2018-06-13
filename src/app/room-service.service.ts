@@ -27,6 +27,19 @@ export class RoomServiceService {
 
   }
 
+  
+   /*
+   Getter for a single Room by id
+   */
+  getRoom (id: number): Observable<Room>{
+    const url=`${this.roomUrl}/${id}`;
+    return this.httpClient.get<Room>(url).pipe(
+      tap(room => this.log(`fetched room with id= ${id}`)),
+      catchError(this.handleError<Room>(`getRoombyID id= ${id}`))
+    )
+
+  }
+
 
   private handleError<T>(operation = 'operation', result?: T){
     return (error: any): Observable<T> =>{

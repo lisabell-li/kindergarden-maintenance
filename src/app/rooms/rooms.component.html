@@ -1,4 +1,5 @@
-<div class="container page"><div class="row">
+<div class="container page">
+<div class="row">
 <div class="col-md-4" *ngFor="let room of rooms">
 <div class="box-label"> <h2>{{room.name}}</h2></div>
 <div class="box-body">
@@ -14,6 +15,9 @@
     <li>{{room.windows}}</li>
     <li>{{room.sockets.working}}</li>-->
   </ul>
+  <a routerLink="/detail/{{room.id}}" class="link-a">
+    more details
+  </a>
 </div>
 </div>
 </div>

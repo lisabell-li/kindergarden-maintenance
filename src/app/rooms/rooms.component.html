@@ -1,11 +1,18 @@
 <div class="container page"><div class="row">
-<div class="col-md-4">
-<div class="box-label"> <h2>Kitchen</h2></div>
+<div class="col-md-4" *ngFor="let room of rooms">
+<div class="box-label"> <h2>{{room.name}}</h2></div>
 <div class="box-body">
   <ul>
-    <li>40 sqm</li>
-    <li>100 items to maintain</li>
-    <li>Maintain status: 80%</li>
+    <li>{{room.sqm}} sqm</li>
+    <li> {{room.sockets.broken + room.lightbulbs.broken + room.windows.broken + room.lightSwitches.broken}} items to maintain: <br/> 
+      <span *ngIf="room.sockets.broken > 0"><i class="fa fa-dice-five"></i> {{room.sockets.broken}} sockets <br/></span>
+      <span *ngIf="room.lightbulbs.broken > 0"><i class="far fa-lightbulb"></i> {{room.lightbulbs.broken}} lightbulbs<br/></span>
+      <span *ngIf="room.windows.broken > 0"><i class="fa fa-window-maximize" aria-hidden="true"></i> {{room.windows.broken}} windows <br/></span>
+      <span *ngIf="room.lightSwitches.broken > 0"><i class="fa fa-toggle-on" aria-hidden="true"></i> {{room.lightSwitches.broken}} lightswitches</span></li>
+    <li>Maintain status: {{100-(((room.sockets.broken + room.lightbulbs.broken + room.windows.broken + room.lightSwitches.broken)/(room.sockets.working + room.lightbulbs.working + room.windows.working + room.lightSwitches.working +room.sockets.broken + room.lightbulbs.broken + room.windows.broken + room.lightSwitches.broken))*100).toFixed(1)}} %</li>
+    <!--<li>{{room.lightbulbs}}</li>
+    <li>{{room.windows}}</li>
+    <li>{{room.sockets.working}}</li>-->
   </ul>
 </div>
 </div>

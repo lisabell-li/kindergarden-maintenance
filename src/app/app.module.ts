@@ -7,6 +7,10 @@ import { RoomsComponent } from './rooms/rooms.component';
 import { ShoppinglistComponent } from './shoppinglist/shoppinglist.component';
 import { StartComponent } from './start/start.component';
 import { RoomdetailComponent } from './roomdetail/roomdetail.component';
+import { HttpClientModule} from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { RoomServiceService } from './room-service.service';
+import { InMemoryService } from './in-memory.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,10 @@ import { RoomdetailComponent } from './roomdetail/roomdetail.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryService, { dataEncapsulation: false }),
   ],
   providers: [],
   bootstrap: [AppComponent]
